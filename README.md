@@ -11,3 +11,15 @@
 Developed by:
 - Pol Pages   – **1494769**
 - Sergi Vila  – **1531267**
+
+### Basic functionality tests
+#### 1. Grid
+- You should be able to initialize a grid with empty cells.
+- You should be able to group cells by rows and columns.
+- You should be able to identify a random empty cell.
+#### 2. Tile
+- You must be able to initialize a token with a value.
+- You must be able to change the value of a token.
+#### 3. Game
+- You must be able to move pieces in all four directions.
+- You must be able to verify if a movement is valid.

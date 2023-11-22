@@ -16,9 +16,9 @@ Developed by:
 #### Board
 1. You should be able to initialize a board with empty cells.
 2. When the game starts, typically two tiles are added to the board in random positions. These tiles can either be a 2 or a 4.
-3. a – After a player moves left, the tiles should shift in the direction of the move, combining equal tiles.
-4. b – After a player moves right, the tiles should shift in the direction of the move, combining equal tiles.
-5. c – After a player moves up, the tiles should shift in the direction of the move, combining equal tiles.
-6. d – After a player moves down, the tiles should shift in the direction of the move, combining equal tiles.
+3. After a player moves left, the tiles should shift in the direction of the move, combining equal tiles.
+4. After a player moves right, the tiles should shift in the direction of the move, combining equal tiles.
+5. After a player moves up, the tiles should shift in the direction of the move, combining equal tiles.
+6. After a player moves down, the tiles should shift in the direction of the move, combining equal tiles.
 7. A test to check if the combining of tiles works correctly. For example, when two '2' tiles combine, they should become one '4' tile.
 8. A test to determine if the game correctly identifies when no moves are left, meaning the game is over.

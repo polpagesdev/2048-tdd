@@ -8,12 +8,30 @@
     <title>2048 Game</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script src="index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,400,800" rel="stylesheet">
+    <script src="./index.js"></script>
 </head>
 
 <body>
+
     <main>
-        <h1>2048 Game</h1>
+        <div class="game" id="game">
+
+            <div class="header-container">
+                <div class="title">2048 <button class="header-btn" onClick=''>i</button><button
+                        class="header-btn reset" id="reset" onClick=''>↻</button></div>
+                <div class="score">Score<br /><span id="score-value"></span></div>
+            </div>
+
+            <div class="description" id="description">
+                How to play:<br /><br />
+                Use your arrow-keys to slide the tiles. <br />
+                Two tiles with the same value in line can be merged. The goal is to merge the tiles and get the 2048
+                tile.<br /><br />
+                The score is a sum of the merged tiles.<br><br />
+            </div>
+
+        </div>
     </main>
 </body>
 

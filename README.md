@@ -12,14 +12,13 @@ Developed by:
 - Pol Pages   – **1494769**
 - Sergi Vila  – **1531267**
 
-### Basic functionality tests
-#### 1. Grid
-- You should be able to initialize a grid with empty cells.
-- You should be able to group cells by rows and columns.
-- You should be able to identify a random empty cell.
-#### 2. Tile
-- You must be able to initialize a token with a value.
-- You must be able to change the value of a token.
-#### 3. Game
-- You must be able to move pieces in all four directions.
-- You must be able to verify if a movement is valid.
+### Equivalent partitions tests
+#### Board
+1. You should be able to initialize a board with empty cells.
+2. When the game starts, typically two tiles are added to the board in random positions. These tiles can either be a 2 or a 4.
+3. a – After a player moves left, the tiles should shift in the direction of the move, combining equal tiles.
+4. b – After a player moves right, the tiles should shift in the direction of the move, combining equal tiles.
+5. c – After a player moves up, the tiles should shift in the direction of the move, combining equal tiles.
+6. d – After a player moves down, the tiles should shift in the direction of the move, combining equal tiles.
+7. A test to check if the combining of tiles works correctly. For example, when two '2' tiles combine, they should become one '4' tile.
+8. A test to determine if the game correctly identifies when no moves are left, meaning the game is over.

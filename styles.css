@@ -1,0 +1,131 @@
+/* ---------- Main styling ---------- */
+
+body {
+    background-color: #f6f3ee;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    font-family: Nunito;
+}
+
+.header-container {
+    height: 150px;
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    float: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 100px;
+    font-weight: 200;
+    margin-right: 15px;
+}
+
+.header-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-weight: 100;
+    cursor: pointer;
+    border: 0px;
+    background-color: #88b1ef;
+    color: #fff;
+    font-size: 20px;
+    top: 50px;
+    transform: translate(-50%, -50%);
+    margin-left: 25px;
+    transition: 0.1s background-color;
+}
+
+.header-btn:hover {
+    background-color: #6593d8;
+}
+
+.repeat {
+    margin: 0px !important;
+}
+
+.game {
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+
+.description {
+    height: 250px;
+    width: 300px;
+    top: 1000px;
+    color: #333;
+    transform: translate(-50%, -50%) scale(0);
+    position: absolute;
+    left: 50%;
+    top: 425px;
+    background: #f6f3ee;
+    padding: 50px;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    visibility: hidden;
+    font-size: 15px;
+    transition: 0.3s all;
+}
+
+.description.visible {
+    visibility: visible;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.score {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    top: 10px;
+    font-weight: 400;
+    font-size: 30px;
+    color: grey;
+    text-align: center;
+}
+
+
+/* ---------- Grid styling ---------- */
+
+.grid {
+    position: absolute;
+    width: 510px;
+    height: 510px;
+    background-color: #888;
+    top: 200px;
+    border-radius: 0px;
+    border: 5px solid #888;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+.grid_row {
+    width: 510px;
+    height: 135px;
+    position: relative;
+    display: table-row;
+}
+
+.grid_cell {
+    width: 125px;
+    height: 125px;
+    position: relative;
+    display: table-cell;
+    border-radius: 0px;
+    border: 5px solid #888;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 50px;
+    background-color: #aaa;
+    color: white;
+}

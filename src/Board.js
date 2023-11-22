@@ -83,15 +83,46 @@ export default class Board {
         this.board = this.board[0].map((_col, i) => this.board.map(row => row[i]));
     }
 
-    // Checks if the game is over by checking if there are any empty cells and if there are no adjacent cells with the same value.
-    checkGameOver() {
+    // Checks if the player can move left or right.
+    canMoveHorizontal() {
         for (let i = 0; i < this.size; i++) {
-            for (let j = 0; j < this.size; j++) {
-                if (this.board[i][j] === 0) return false;
-                if (j < this.size - 1 && this.board[i][j] === this.board[i][j + 1]) return false;
-                if (i < this.size - 1 && this.board[i][j] === this.board[i + 1][j]) return false;
+            for (let j = 0; j < this.size - 1; j++) {
+                if (this.board[i][j] === this.board[i][j + 1]) return true;
             }
         }
-        return true;
+        return false;
+    }
+
+    // Checks if the player can move up or down.
+    canMoveVertical() {
+        for (let j = 0; j < this.size; j++) {
+            for (let i = 0; i < this.size - 1; i++) {
+                if (this.board[i][j] === this.board[i + 1][j]) return true;
+            }
+        }
+        return false;
+    }
+
+    // Gets the highest tile in the board.
+    getHighestTile() {
+        return Math.max(...this.board.flat());
     }    
+
+    // Checks if the game is over by checking if there are any empty cells and if there are no adjacent cells with the same value.
+    checkGameOver() {
+        if (!this.canMoveHorizontal() && !this.canMoveVertical()) {
+            for (let i = 0; i < this.size; i++) {
+                for (let j = 0; j < this.size; j++) {
+                    if (this.board[i][j] === 0) return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }    
+
+    // Checks if the game is won by checking if there are any 2048 tiles.
+    hasWon() {
+        return this.board.some(row => row.includes(2048));
+    }   
 }

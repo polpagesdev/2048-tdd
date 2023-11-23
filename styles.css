@@ -54,29 +54,27 @@ body {
     box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
 }
 
-.description {
-    height: 250px;
-    width: 300px;
-    top: 1000px;
-    color: #333;
-    transform: translate(-50%, -50%) scale(0);
-    position: absolute;
-    left: 50%;
-    top: 425px;
-    background: #f6f3ee;
-    padding: 50px;
-    border-radius: 5px;
-    z-index: 1000;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    visibility: hidden;
-    font-size: 15px;
-    transition: 0.3s all;
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
 }
 
-.description.visible {
-    visibility: visible;
-    transform: translate(-50%, -50%) scale(1);
+.description {
+    max-width: 30rem;
+    position: fixed;
+    top: 400px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2001;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .score {

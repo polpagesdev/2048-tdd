@@ -18,17 +18,15 @@
         <div class="game" id="game">
 
             <div class="header-container">
-                <div class="title">2048 <button class="header-btn" onClick=''>i</button><button
-                        class="header-btn reset" id="reset" onClick=''>↻</button></div>
+                <div class="title">2048 <button id="info" class="header-btn" onClick=''>i</button><button class="header-btn reset"
+                        id="reset">↻</button></div>
                 <div class="score">Score<br /><span id="score-value"></span></div>
             </div>
 
-            <div class="description" id="description">
-                How to play:<br /><br />
-                Use your arrow-keys to slide the tiles. <br />
-                Two tiles with the same value in line can be merged. The goal is to merge the tiles and get the 2048
-                tile.<br /><br />
-                The score is a sum of the merged tiles.<br><br />
+            <div id="popup-overlay" class="popup-overlay" style="display:none;"></div>
+
+            <div class="description" id="description" style="display:none;">
+                Use your arrow keys or swipe left or right, up or down to move the tiles. When two tiles with the same number touch, they merge into one. Once you get 2048 in any square, you win.
             </div>
 
             <div id="board" class="grid"></div>

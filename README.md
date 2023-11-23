@@ -12,6 +12,65 @@ Developed by:
 
 <hr />
 
+## Project set up
+
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+Make sure you have [Node.js](https://nodejs.org/) installed on your system.
+
+### Installing
+
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/your-username/2048-game.git
+cd 2048-game
+```
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+### Running the Game
+
+To start the game, simply open the `index.html` file in your browser.
+
+```bash
+open index.html # On macOS
+# OR
+start index.html # On Windows
+# OR
+xdg-open index.html # On Linux
+```
+
+Alternatively, you can set up a local server using Node.js:
+
+```bash
+npx http-server .
+```
+
+Then, open your browser and go to `http://localhost:8080`.
+
+## How to Play
+
+- Use the arrow keys (`←`, `↑`, `→`, `↓`) to move the tiles.
+- Tiles with the same number merge into one when they touch.
+- Add them up to reach [2048](https://en.wikipedia.org/wiki/2048_(video_game))!
+
+## Testing
+
+Run the tests with:
+
+```bash
+npm test
+```
+
+<hr />
+
 # Tests implemented
 
 <div style="width:250px;height:1px;background-color:gray;"></div>

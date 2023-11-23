@@ -30,12 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateScore(board.getScore()); // Update score after rendering board
     }
 
-    // Update the score
-    function updateScore(value) {
-        score += value;
-        scoreElement.textContent = score;
-    }
-
     // Event listener for key presses
     document.addEventListener('keydown', (event) => {
         let moved = false;
@@ -70,19 +64,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Check if the game is over
     function checkGameOver() {
-        if (board.checkGameOver()) {
+        if (board.hasLost()) {
             alert('Game Over!');
+            resetGame();
         } else if (board.hasWon()) {
-            alert('Congratulations, You Won!');
+            alert('Congratulations, You Won! Now, you can try to get further score!');
         }
     }
 
-    // Reset game
-    resetButton.addEventListener('click', () => {
+    // Update the score
+    function updateScore(value) {
+        score += value;
+        scoreElement.textContent = score;
+    }
+
+    function resetGame() {
         board.board = board.createBoard();
         score = 0;
         updateScore(0);
         init();
+    }
+
+    // Reset game
+    resetButton.addEventListener('click', () => {
+        resetGame();
     });
 
     init(); // Start the game

@@ -17,7 +17,6 @@ Developed by:
 <div style="width:250px;height:1px;background-color:gray;"></div>
 
 ## Equivalent partitions tests
-### Board
 1. You should be able to initialize a board with empty cells.
 2. When the game starts, typically two tiles are added to the board in random positions. These tiles can either be a 2 or a 4.
 3. After a player moves left, the tiles should shift in the direction of the move, combining equal tiles.
@@ -30,7 +29,6 @@ Developed by:
 <div style="width:250px;height:1px;background-color:gray;"></div>
 
 ## Limit and frontier values
-### Board
 9. Check if the game recognizes a win when 2048 is reached.
 10. Verify that the game identifies when no horizontal moves are possible.
 11. Confirm that the game recognizes when no vertical moves can be made.
@@ -40,7 +38,6 @@ Developed by:
 <div style="width:250px;height:1px;background-color:gray;"></div>
 
 ## Pairwise testing
-### Board
 14. Single combination move available - move up
 15. Single combination move available - move down
 16. Single combination move available - move left
@@ -61,7 +58,6 @@ Developed by:
 <div style="width:250px;height:1px;background-color:gray;"></div>
 
 ## Mock Objects
-### Board
 30. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 2 at the beginning of the board.
 31. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 2 at a random position of the board.
 32. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 4 at the beginning of the board.
@@ -70,4 +66,18 @@ Developed by:
 35. Mocking user input to test the game's response without requiring actual user interaction – move down.
 36. Mocking user input to test the game's response without requiring actual user interaction – move left.
 37. Mocking user input to test the game's response without requiring actual user interaction – move right.
+38. Mocking the game rendering to test the board state after adding initial tiles.
+39. Mocking the game rendering to test the board state after moving left.
+40. Mocking the game rendering to test the board state after moving right.
+41. Mocking the game rendering to test the board state after moving up.
+42. Mocking the game rendering to test the board state after moving down.
 
+<div style="width:250px;height:1px;background-color:gray;"></div>
+
+## Loop testing
+43. Testing if addRandomTile adds a tile correctly to an empty board.
+44. Testing if addRandomTile does not add a tile to a full board.
+45. Testing if moveLeft combines tiles correctly.
+46. Testing if moveLeft does not combine tiles when there are no merges.
+47. Testing if canMoveHorizontal returns false when there are no possible moves.
+48. Testing if canMoveHorizontal returns true when there are possible moves.

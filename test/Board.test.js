@@ -647,3 +647,53 @@ describe('Loop testing', () => {
         expect(gameBoard.canMoveVertical()).toBeTruthy();
     });    
 });
+
+/* ---------- Test Coverage Assuring ---------- */
+
+describe('Test Coverage Assuring', () => {
+    
+    // 49. Ensure that checkGameOver recognizes a win when the board is full and no moves are possible.
+    test('checkGameOver recognizes a win', () => {
+        const gameBoard = new Board();
+        gameBoard.board[0][0] = 2048;
+        gameBoard.checkGameOver();
+        // Expect that gameBoard.hasWon() returns true
+        expect(gameBoard.hasWon()).toBeTruthy();
+    });
+    
+    // 50. Ensure that checkGameOver recognizes a loss when the board is full and no moves are possible.
+    test('checkGameOver recognizes a loss', () => {
+        const gameBoard = new Board();
+        gameBoard.board = gameBoard.board.map(row => row.map(() => 2)); // Fill the board without 2048
+        gameBoard.checkGameOver();
+        // Expect that gameBoard.hasLost() returns true
+        expect(gameBoard.hasLost()).toBeTruthy();
+    });
+
+    // 51. Ensure that addRandomTile does not add a tile when the board is full and no moves are possible.
+    test('addRandomTile does not add a tile when the board is full', () => {
+        const gameBoard = new Board();
+        gameBoard.board = gameBoard.board.map(row => row.map(() => 2)); // Fill the board
+        const result = gameBoard.addRandomTile();
+        // Expect that no tile was added
+        expect(result).toBeFalsy();
+    });
+
+    // 52. Ensure that hasLost returns true when the board is not full.
+    test('hasLost returns false when the board is not full', () => {
+        const gameBoard = new Board();
+        gameBoard.board[0][0] = 0; // Ensure at least one cell is empty
+        const result = gameBoard.hasLost();
+        // Expect that the game is not lost
+        expect(result).toBeFalsy();
+    });
+
+    // 53. Ensure that move() does nothing when the direction is invalid.
+    test('move with invalid direction does nothing', () => {
+        const gameBoard = new Board();
+        const initialBoardState = gameBoard.board.map(row => [...row]); // Clone the initial state
+        gameBoard.move('invalidDirection');
+        // Expect that the board did not change
+        expect(gameBoard.board).toEqual(initialBoardState);
+    });    
+})

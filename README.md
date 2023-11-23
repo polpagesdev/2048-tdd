@@ -81,3 +81,12 @@ Developed by:
 46. Testing if moveLeft does not combine tiles when there are no merges.
 47. Testing if canMoveHorizontal returns false when there are no possible moves.
 48. Testing if canMoveHorizontal returns true when there are possible moves.
+
+<div style="width:250px;height:1px;background-color:gray;"></div>
+
+## Test Coverage Assuring
+49. Ensure that checkGameOver recognizes a win when the board is full and no moves are possible.
+50. Ensure that checkGameOver recognizes a loss when the board is full and no moves are possible.
+51. Ensure that addRandomTile does not add a tile when the board is full and no moves are possible.
+52. Ensure that hasLost returns true when the board is not full.
+53. Ensure that move() does nothing when the direction is invalid.

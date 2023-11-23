@@ -718,17 +718,12 @@ describe('Test Coverage Assuring', () => {
     // 55. Ensure that hasLost returns false if there is at least one empty cell.
     test('hasLost returns false if there is at least one empty cell', () => {
         const gameBoard = new Board();
-        let tileValue = 2;
-
-        // Fill the board in a zigzag pattern with no possible merges
-        for (let i = 0; i < gameBoard.size; i++) {
-            for (let j = 0; j < gameBoard.size; j++) {
-                if (!(i === 0 && j === 0)) { // Leave the first cell empty
-                    gameBoard.board[i][j] = tileValue;
-                    tileValue = tileValue === 2 ? 4 : 2; // Alternate between 2 and 4
-                }
-            }
-        }
+        gameBoard.board = [
+            [2, 4, 8, 16],
+            [4, 0, 16, 32],
+            [8, 16, 32, 64],
+            [16, 32, 64, 128]
+        ];
 
         expect(gameBoard.hasLost()).toBeFalsy(); // There is still an empty cell, so not lost
     });

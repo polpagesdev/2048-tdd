@@ -27,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 rowElement.appendChild(tileElement);
             });
         });
+        updateScore(board.getScore()); // Update score after rendering board
     }
 
     // Update the score
@@ -56,12 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 moved = true;
                 break;
             default:
+                moved = false;
                 break;
         }
 
         if (moved) {
             board.addRandomTile();
-            // updateScore(... calculate score based on board state ...);
             renderBoard();
             checkGameOver();
         }

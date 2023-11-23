@@ -59,3 +59,15 @@ Developed by:
 29. No moves possible (game over) - attempt move right
 
 <div style="width:250px;height:1px;background-color:gray;"></div>
+
+## Mock Objects
+### Board
+30. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 2 at the beginning of the board.
+31. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 2 at a random position of the board.
+32. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 4 at the beginning of the board.
+33. Mocking random tile generation to test how the game behaves when specific tiles are added to the board. Added tile of 4 at a random position of the board.
+34. Mocking user input to test the game's response without requiring actual user interaction – move up.
+35. Mocking user input to test the game's response without requiring actual user interaction – move down.
+36. Mocking user input to test the game's response without requiring actual user interaction – move left.
+37. Mocking user input to test the game's response without requiring actual user interaction – move right.
+

@@ -84,9 +84,13 @@ Developed by:
 
 <div style="width:250px;height:1px;background-color:gray;"></div>
 
-## Test Coverage Assuring
+## Test Coverage Assuring
+
 49. Ensure that checkGameOver recognizes a win when the board is full and no moves are possible.
 50. Ensure that checkGameOver recognizes a loss when the board is full and no moves are possible.
 51. Ensure that addRandomTile does not add a tile when the board is full and no moves are possible.
 52. Ensure that hasLost returns true when the board is not full.
 53. Ensure that move() does nothing when the direction is invalid.
+54. Ensure that checkGameOver announces win correctly when a winning tile is found.
+55. Ensure that hasLost returns false if there is at least one empty cell.
+56. Ensure that getScore returns the current score.

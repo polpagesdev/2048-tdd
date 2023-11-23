@@ -511,17 +511,17 @@ describe('Mock objects', () => {
         let gameBoard = new Board();
         gameBoard.addInitialTiles();
         const renderedOutput = gameBoard.render();
-    
+
         // Split the output into rows and then into cells
         const allCells = renderedOutput.split('\n').flatMap(row => row.split(' '));
-    
+
         // Filter out the '0's and count the non-zero cells
         const nonZeroCells = allCells.filter(cell => cell !== '0');
         const tileCount = nonZeroCells.length;
-    
+
         // Check if two tiles have been added
         expect(tileCount).toBe(2);
-    });    
+    });
 
     // 39. Mocking the game rendering to test the board state after moving left.
     test('Board state after moving left', () => {
@@ -587,7 +587,7 @@ describe('Loop testing', () => {
         const tiles = gameBoard.board.flat().filter(tile => tile !== 0);
         expect(tiles.length).toBe(1); // Expect exactly one tile to be added
     });
-    
+
     // 44. Testing if addRandomTile does not add a tile to a full board.
     test('addRandomTile does not add a tile to a full board', () => {
         const gameBoard = new Board();
@@ -609,7 +609,7 @@ describe('Loop testing', () => {
         gameBoard.moveLeft();
         expect(gameBoard.board[0]).toEqual([4, 8, 0, 0]);
     });
-    
+
     // 46. Testing if moveLeft does not combine tiles when there are no merges.
     test('moveLeft on a row with no merges', () => {
         const gameBoard = new Board();
@@ -634,7 +634,7 @@ describe('Loop testing', () => {
         ];
         expect(gameBoard.canMoveHorizontal()).toBeFalsy();
     });
-    
+
     // 48. Testing if canMoveHorizontal returns true when there are possible moves.
     test('canMoveVertical with a possible move', () => {
         const gameBoard = new Board();
@@ -645,13 +645,13 @@ describe('Loop testing', () => {
             [0, 0, 0, 0]
         ];
         expect(gameBoard.canMoveVertical()).toBeTruthy();
-    });    
+    });
 });
 
 /* ---------- Test Coverage Assuring ---------- */
 
 describe('Test Coverage Assuring', () => {
-    
+
     // 49. Ensure that checkGameOver recognizes a win when the board is full and no moves are possible.
     test('checkGameOver recognizes a win', () => {
         const gameBoard = new Board();
@@ -660,11 +660,16 @@ describe('Test Coverage Assuring', () => {
         // Expect that gameBoard.hasWon() returns true
         expect(gameBoard.hasWon()).toBeTruthy();
     });
-    
+
     // 50. Ensure that checkGameOver recognizes a loss when the board is full and no moves are possible.
     test('checkGameOver recognizes a loss', () => {
         const gameBoard = new Board();
-        gameBoard.board = gameBoard.board.map(row => row.map(() => 2)); // Fill the board without 2048
+        gameBoard.board = [
+            [2, 4, 8, 16],
+            [4, 8, 16, 32],
+            [8, 16, 32, 64],
+            [16, 32, 64, 128]
+        ];
         gameBoard.checkGameOver();
         // Expect that gameBoard.hasLost() returns true
         expect(gameBoard.hasLost()).toBeTruthy();
@@ -695,5 +700,50 @@ describe('Test Coverage Assuring', () => {
         gameBoard.move('invalidDirection');
         // Expect that the board did not change
         expect(gameBoard.board).toEqual(initialBoardState);
+    });
+
+    // 54. Ensure that checkGameOver announces win correctly when a winning tile is found.
+    test('checkGameOver announces win correctly', () => {
+        const gameBoard = new Board();
+        gameBoard.board[0][0] = 2048; // Set a winning tile
+        document.body.innerHTML = `<div id="board"></div>`; // Mock the board element
+        const consoleSpy = jest.spyOn(console, 'log'); // Spy on console.log to verify output
+
+        gameBoard.checkGameOver();
+
+        expect(consoleSpy).toHaveBeenCalledWith('Congratulations, You Won!');
+        consoleSpy.mockRestore(); // Restore original console.log
+    });
+
+    // 55. Ensure that hasLost returns false if there is at least one empty cell.
+    test('hasLost returns false if there is at least one empty cell', () => {
+        const gameBoard = new Board();
+        let tileValue = 2;
+
+        // Fill the board in a zigzag pattern with no possible merges
+        for (let i = 0; i < gameBoard.size; i++) {
+            for (let j = 0; j < gameBoard.size; j++) {
+                if (!(i === 0 && j === 0)) { // Leave the first cell empty
+                    gameBoard.board[i][j] = tileValue;
+                    tileValue = tileValue === 2 ? 4 : 2; // Alternate between 2 and 4
+                }
+            }
+        }
+
+        expect(gameBoard.hasLost()).toBeFalsy(); // There is still an empty cell, so not lost
+    });
+
+    // 56. Ensure that getScore returns the current score.
+    test('getScore returns the current score', () => {
+        const gameBoard = new Board();
+        // Simulate some moves that would increase the score
+        // For simplicity, let's manually set the score
+        gameBoard.score = 2048;
+    
+        // Now, get the score using getScore method
+        const score = gameBoard.getScore();
+    
+        // Assert the returned score is as expected
+        expect(score).toBe(2048);
     });    
-})
+});
